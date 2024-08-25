@@ -18,12 +18,12 @@ export default function Container({ is_xp }) {
                     with the Spotify API.
                 </p>
                 <div className="mt-2">
-                    <span className="inline-block py-1 px-2 m-0.5 text-sm rounded-full bg-teal-900 text-teal-200">JavaScript</span>
-                    <span className="inline-block py-1 px-2 m-0.5 text-sm rounded-full bg-teal-900 text-teal-200">Python</span>
-                    <span className="inline-block py-1 px-2 m-0.5 text-sm rounded-full bg-teal-900 text-teal-200">Django</span>
-                    <span className="inline-block py-1 px-2 m-0.5 text-sm rounded-full bg-teal-900 text-teal-200">Vercel</span>
-                    <span className="inline-block py-1 px-2 m-0.5 text-sm rounded-full bg-teal-900 text-teal-200">React</span>
-                    <span className="inline-block py-1 px-2 m-0.5 text-sm rounded-full bg-teal-900 text-teal-200">JavaScript</span>
+                    <span className="inline-block py-1 px-2 m-0.5 text-xs rounded-full bg-teal-900 text-teal-200">JavaScript</span>
+                    <span className="inline-block py-1 px-2 m-0.5 text-xs rounded-full bg-teal-900 text-teal-200">Python</span>
+                    <span className="inline-block py-1 px-2 m-0.5 text-xs rounded-full bg-teal-900 text-teal-200">Django</span>
+                    <span className="inline-block py-1 px-2 m-0.5 text-xs rounded-full bg-teal-900 text-teal-200">Vercel</span>
+                    <span className="inline-block py-1 px-2 m-0.5 text-xs rounded-full bg-teal-900 text-teal-200">React</span>
+                    <span className="inline-block py-1 px-2 m-0.5 text-xs rounded-full bg-teal-900 text-teal-200">JavaScript</span>
                 </div>
             </div>
         </article>
