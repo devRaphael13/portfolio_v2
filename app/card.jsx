@@ -26,26 +26,27 @@ export function Experience() {
 
     if (!data) return <h2 className="text-2xl mt-4 italic font-semibold text-slate-600">Nothing to show....</h2>;
     return (
-        <>
+        <div className="">
             {data.map((exp) => (
-                <article key={exp.id} className="flex p-6 gap-x-2 rounded-md cursor-pointer hover:bg-slate-800">
-                    <span className="block text-slate-500 text-xs font-semibold">{formatDate(exp.start_date, exp.end_date)}</span>
-                    <div className="w-5/6">
+                <article key={exp.id} className="">
+                    <div className="flex justify-between">
                         <a href={`${exp.link || "#"}`} className="text-lg font-bold text-slate-200 leading-snug hover:text-teal-400">
                             {exp.company} <FaLink className="inline-block" />
                         </a>
-                        <span className="block text-lg text-slate-500 mb-1">{exp.position}</span>
+                        <span className="italic block text-slate-500 text-xs font-semibold">{formatDate(exp.start_date, exp.end_date)}</span>
+                    </div>
 
-                        <p className="leading-normal">{exp.description}</p>
-                        <div className="mt-4">
-                            {exp.tech_used.map((skill, index) => (
-                                <Skill key={index} name={skill} />
-                            ))}
-                        </div>
+                    <span className="block text-lg text-slate-500 mb-4">{exp.position}</span>
+
+                    <p className="lg:text-sm leading-normal">{exp.description}</p>
+                    <div className="mt-4">
+                        {exp.tech_used.map((skill, index) => (
+                            <Skill key={index} name={skill} />
+                        ))}
                     </div>
                 </article>
             ))}
-        </>
+        </div>
     );
 }
 
@@ -68,24 +69,24 @@ export function Project() {
 
     if (!data) return <h2 className="text-2xl mt-4 italic font-semibold text-slate-600">Nothing to show....</h2>;
     return (
-        <>
+        <div className="flex flex-col gap-y-10">
             {data.map((proj) => (
-                <article key={proj.id} className="flex gap-x-2 p-6 rounded-md cursor-pointer hover:bg-slate-800">
-                    <span className="block text-slate-500 text-xs font-semibold">{formatDate(proj.start_date, proj.end_date)}</span>
-                    <div className="w-5/6">
-                        <a href={`${proj.link || "#"}`} className="text-lg font-bold text-slate-200 leading-snug hover:text-teal-400">
-                            {proj.name} <FaLink className="inline-block" />
-                        </a>
-
+                <article key={proj.id} className="">
+                    <div className="flex justify-between gap-2">
+                            <a href={`${proj.link || "#"}`} className="text-lg font-bold text-slate-200 leading-snug hover:text-teal-400">
+                                {proj.name} <FaLink className="inline-block" />
+                            </a>
+                            <span className="italic block text-slate-500 text-xs font-semibold">{formatDate(proj.start_date, proj.end_date)}</span>
+                        </div>
+                    <span className="block text-lg text-slate-500 mb-4">{proj.employer ? proj.employer : "Personal Project"}</span>
                         <p className="leading-normal">{proj.description}</p>
                         <div className="mt-4">
                             {proj.tech_used.map((skill, index) => (
                                 <Skill key={index} name={skill} />
                             ))}
                         </div>
-                    </div>
                 </article>
             ))}
-        </>
+        </div>
     );
 }

@@ -17,7 +17,7 @@ export function AllSkills({ classes }) {
     if (!data) return <h2 className="text-2xl mt-4 italic font-semibold text-slate-600">Nothing to show....</h2>;
 
     return (
-        <div className={`${classes} mt-8 w-3/4`}>
+        <div className={`${classes} mt-8 md:w-3/4`}>
             {data.map((skill) => <Skill key={skill.id} {...skill}/>)}
         </div>
     );

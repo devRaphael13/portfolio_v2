@@ -8,9 +8,9 @@ import { IoLogoWhatsapp } from "react-icons/io";
 
 export default function Home() {
     return (
-        <main className="flex gap-y-14">
-            <section className="w-1/2">
-                <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">Raphael Ezeigwe</h1>
+        <main className="md:flex max-w-[1000px]">
+            <section className="md:w-1/2">
+                <h1 className="text-4xl font-bold tracking-tight text-slate-200">Raphael Ezeigwe</h1>
                 <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">Fullstack Developer</h2>
                 <p className="mt-4 max-w-xs leading-normal">I Craft Seamless Digital Experiences from Front to Back.</p>
 
@@ -18,7 +18,7 @@ export default function Home() {
                     Download Résumé <FaLink className="inline-block" />
                 </a>
                 <AllSkills/>
-                <div className="flex max-w-3/4 gap-x-8 mt-28">
+                <div className="flex max-w-3/4 gap-x-8 mt-12 md:mt-28 mb-28 md:mb-0">
                     <a className="hover:drop-shadow-glow text-teal-400">
                         <BsLinkedin className="w-6 h-6" />
                     </a>
@@ -36,7 +36,7 @@ export default function Home() {
 
             {/* Content */}
 
-            <section className="w-1/2 flex flex-col gap-y-28">
+            <section className="md:w-1/2 flex flex-col gap-y-28">
                 <div id="about" className="flex flex-col gap-y-4 ">
                     <p className="leading-normal">
                         Hey there! I'm a <span className="text-slate-200">full stack developer</span> who jumped into the tech scene in 2020, right when the world was shifting gears into the digital
@@ -59,7 +59,7 @@ export default function Home() {
                 <div>
                     <div id="experiences" className="flex flex-col gap-y-1">
                         {/* Experiences */}
-                        <h2 className="text-2xl mb-2 font-bold text-slate-500">Experiences</h2>
+                        <h2 className="text-xl mb-2 font-semibold text-slate-500">EXPERIENCES</h2>
                         <Experience />
                     </div>
                     <a className="hover:drop-shadow-glow text-md font-bold mt-6 block text-teal-400" href="">
@@ -68,7 +68,7 @@ export default function Home() {
 
                     <div id="projects" className="flex flex-col gap-y-1 mt-28">
                         {/* Projects  */}
-                        <h2 className="text-2xl mb-2 font-bold text-slate-500">Projects</h2>
+                        <h2 className="text-xl mb-2 font-semibold text-slate-500">PROJECTS</h2>
                         <Project />
                         <a className="hover:drop-shadow-glow text-md font-bold mt-6 block text-teal-400" href="">
                             View Project Archive <FaLink className="inline-block" />
