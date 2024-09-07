@@ -70,9 +70,6 @@ export default function Home() {
                         {/* Projects  */}
                         <h2 className="text-2xl mb-2 font-bold text-slate-500">Projects</h2>
                         <Project />
-                        <Project />
-                        <Project />
-                        <Project />
                         <a className="hover:drop-shadow-glow text-md font-bold mt-6 block text-teal-400" href="">
                             View Project Archive <FaLink className="inline-block" />
                         </a>
