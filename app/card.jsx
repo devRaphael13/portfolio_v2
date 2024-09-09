@@ -78,7 +78,7 @@ export function Project() {
                             </a>
                             <span className="italic block text-slate-500 text-xs font-semibold">{formatDate(proj.start_date, proj.end_date)}</span>
                         </div>
-                    <span className="block text-lg text-slate-500 mb-4">{proj.employer ? proj.employer : "Personal Project"}</span>
+                    <span className="block text-lg text-slate-500 mb-4">{proj.employer}</span>
                         <p className="leading-normal">{proj.description}</p>
                         <div className="mt-4">
                             {proj.tech_used.map((skill, index) => (

@@ -5,6 +5,7 @@ import { BsLinkedin } from "react-icons/bs";
 import { IoLogoGithub } from "react-icons/io";
 import { IoMail } from "react-icons/io5";
 import { IoLogoWhatsapp } from "react-icons/io";
+import Link from "next/link.js";
 
 export default function Home() {
     return (
@@ -70,9 +71,9 @@ export default function Home() {
                         {/* Projects  */}
                         <h2 className="text-xl mb-2 font-semibold text-slate-500">PROJECTS</h2>
                         <Project />
-                        <a className="hover:drop-shadow-glow text-md font-bold mt-6 block text-teal-400" href="">
+                        <Link className="hover:drop-shadow-glow text-md font-bold mt-6 block text-teal-400" href="/projects">
                             View Project Archive <FaLink className="inline-block" />
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </section>
