@@ -15,8 +15,8 @@ export default function Home() {
                 <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">Fullstack Developer</h2>
                 <p className="mt-4 max-w-xs leading-normal">I Craft Seamless Digital Experiences from Front to Back.</p>
 
-                <a href="" className="hover:drop-shadow-glow w-max font-bold mt-4 block text-teal-400">
-                    Download Résumé <FaLink className="inline-block" />
+                <a href="/raphael_ezeigwe_resume.pdf" className="hover:drop-shadow-glow w-max font-bold mt-4 block text-teal-400">
+                    View Résumé <FaLink className="inline-block" />
                 </a>
                 <AllSkills/>
                 <div className="flex max-w-3/4 gap-x-8 mt-12 md:mt-28 mb-28 md:mb-0">
