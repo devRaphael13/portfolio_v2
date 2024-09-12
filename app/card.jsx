@@ -38,7 +38,7 @@ export function Experience() {
 
                     <span className="block text-lg text-slate-500 mb-4">{exp.position}</span>
 
-                    <p className="lg:text-sm leading-normal">{exp.description}</p>
+                    <p className="leading-normal">{exp.description}</p>
                     <div className="mt-4">
                         {exp.tech_used.map((skill, index) => (
                             <Skill key={index} name={skill} />
@@ -69,7 +69,7 @@ export function Project() {
 
     if (!data) return <h2 className="text-2xl mt-4 italic font-semibold text-slate-600">Nothing to show....</h2>;
     return (
-        <div className="flex flex-col gap-y-10">
+        <div className="flex flex-col gap-y-20">
             {data.map((proj) => (
                 <article key={proj.id} className="">
                     <div className="flex justify-between gap-2">
