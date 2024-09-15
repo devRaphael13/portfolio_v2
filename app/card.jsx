@@ -31,7 +31,7 @@ export function Experience() {
                 <article key={exp.id} className="">
                     <div className="flex justify-between">
                         <a href={`${exp.link || "#"}`} className="text-lg font-bold text-slate-200 leading-snug hover:text-teal-400">
-                            {exp.company} <FaLink className="inline-block" />
+                            {exp.company} {exp.link ? <FaLink className="inline-block" /> : ""}
                         </a>
                         <span className="italic block text-slate-500 text-xs font-semibold">{formatDate(exp.start_date, exp.end_date)}</span>
                     </div>
@@ -74,7 +74,7 @@ export function Project() {
                 <article key={proj.id} className="">
                     <div className="flex justify-between gap-2">
                             <a href={`${proj.link || "#"}`} className="text-lg font-bold text-slate-200 leading-snug hover:text-teal-400">
-                                {proj.name} <FaLink className="inline-block" />
+                                {proj.name} {proj.link ? <FaLink className="inline-block" /> : ""}
                             </a>
                             <span className="italic block text-slate-500 text-xs font-semibold">{formatDate(proj.start_date, proj.end_date)}</span>
                         </div>
