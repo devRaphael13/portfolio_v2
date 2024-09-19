@@ -3,6 +3,7 @@ import { AllSkills } from "./skills.jsx";
 import Nav from "./nav.js";
 import { FaLink } from "react-icons/fa6";
 import { BsLinkedin } from "react-icons/bs";
+import { FaPhone } from "react-icons/fa";
 import { IoLogoGithub } from "react-icons/io";
 import { IoMail } from "react-icons/io5";
 import { IoLogoWhatsapp } from "react-icons/io";
@@ -17,22 +18,29 @@ export default function Home() {
                 <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">Fullstack Developer</h2>
                 <p className="mt-4 max-w-xs leading-normal">I Craft Seamless Digital Experiences from Front to Back.</p>
 
-                <a href="/raphael_ezeigwe_resume.pdf" className="hover:drop-shadow-glow w-max font-bold mt-4 block text-teal-400">
+                <a href="/raphael_ezeigwe_resume_17-9-2024.pdf" className="hover:drop-shadow-glow w-max font-bold mt-4 block text-teal-400">
                     View Résumé <FaLink className="inline-block" />
                 </a>
                 <AllSkills />
                 <div className="flex max-w-3/4 gap-x-8 mt-12 md:mt-28 mb-28 md:mb-0">
-                    <a className="hover:drop-shadow-glow text-teal-400">
+                    <a href="https://www.linkedin.com/in/raphaelezeigwe/" target="blank" className="hover:drop-shadow-glow text-teal-400">
                         <BsLinkedin className="w-6 h-6" />
                     </a>
-                    <a className="hover:drop-shadow-glow text-teal-400">
+                    
+                    <a href="https://github.com/devRaphael13" target="blank" className="hover:drop-shadow-glow text-teal-400">
                         <IoLogoGithub className="w-6 h-6" />
                     </a>
-                    <a className="hover:drop-shadow-glow text-teal-400">
+
+                    <a href="mailto:raphael.ezeigwe@yahoo.com" target="blank" className="hover:drop-shadow-glow text-teal-400">
                         <IoMail className="w-6 h-6" />
                     </a>
-                    <a className="hover:drop-shadow-glow text-teal-400">
+
+                    <a href="https://wa.me/+2349035007417" target="blank" className="hover:drop-shadow-glow text-teal-400">
                         <IoLogoWhatsapp className="w-6 h-6" />
+                    </a>
+
+                    <a href="tel:+2349035007417" target="blank" className="hover:drop-shadow-glow text-teal-400">
+                        <FaPhone className="w-6 h-6" />
                     </a>
                 </div>
             </section>
