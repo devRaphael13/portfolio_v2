@@ -55,7 +55,7 @@ export function Project() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetcher("https://portfolio-apiv2.vercel.app/api/projects/", setData, setIsLoading);
+        fetcher("https://portfolio-apiv2.vercel.app/api/projects/?featured=true", setData, setIsLoading);
     }, []);
 
     if (isLoading)
