@@ -3,6 +3,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { IoCodeSlashOutline } from "react-icons/io5";
+import { SlFolder } from "react-icons/sl";
+import { GoPeople } from "react-icons/go";
+import { IoIosStarOutline } from "react-icons/io";
 
 import fetcher from "../fetcher";
 
@@ -47,7 +50,7 @@ export default function About() {
                 <div className="rounded-lg p-8 shadow-lg transition-shadow duration-200 hover:shadow-2xl">
                     <div className="flex items-center mb-2">
                         <span className="p-4 bg-purple-100 rounded-md">
-                            <IoCodeSlashOutline size={30} strokeWidth={0.75} className="text-purple-600" />
+                            <IoCodeSlashOutline size={30} className="text-purple-600" />
                         </span>
                     </div>
 
@@ -56,32 +59,32 @@ export default function About() {
 
                 <div className="rounded-lg p-8 shadow-lg transition-shadow duration-200 hover:shadow-2xl">
                     <div className="flex items-center mb-2">
-                        <span className="p-4 bg-purple-100 rounded-md">
-                            <IoCodeSlashOutline size={30} strokeWidth={0.75} className="text-purple-600" />
+                        <span className="p-4 bg-emerald-100 rounded-md">
+                            <SlFolder size={30} className="text-emerald-600"/>
                         </span>
                     </div>
 
-                    <p className="text-gray-600 font-normal"><span className="text-gray-900 block text-4xl font-bold mb-2">6+</span>Years of Experience</p>
+                    <p className="text-gray-600 font-normal"><span className="text-gray-900 block text-4xl font-bold mb-2">10+</span>Projects Completed</p>
                 </div>
 
                 <div className="rounded-lg p-8 shadow-lg transition-shadow duration-200 hover:shadow-2xl">
                     <div className="flex items-center mb-2">
-                        <span className="p-4 bg-purple-100 rounded-md">
-                            <IoCodeSlashOutline size={30} strokeWidth={0.75} className="text-purple-600" />
+                        <span className="p-4 bg-pink-100 rounded-md">
+                            <GoPeople size={30} className="text-pink-600" />
                         </span>
                     </div>
 
-                    <p className="text-gray-600 font-normal"><span className="text-gray-900 block text-4xl font-bold mb-2">6+</span>Years of Experience</p>
+                    <p className="text-gray-600 font-normal"><span className="text-gray-900 block text-4xl font-bold mb-2">5+</span>Happy Clients</p>
                 </div>
 
                 <div className="rounded-lg p-8 shadow-lg transition-shadow duration-200 hover:shadow-2xl">
                     <div className="flex items-center mb-2">
-                        <span className="p-4 bg-purple-100 rounded-md">
-                            <IoCodeSlashOutline size={30} strokeWidth={0.75} className="text-purple-600" />
+                        <span className="p-4 bg-orange-100 rounded-md">
+                            <IoIosStarOutline size={30} className="text-orange-600" />
                         </span>
                     </div>
 
-                    <p className="text-gray-600 font-normal"><span className="text-gray-900 block text-4xl font-bold mb-2">6+</span>Years of Experience</p>
+                    <p className="text-gray-600 font-normal"><span className="text-gray-900 block text-4xl font-bold mb-2">4.8</span>Average Project Rating</p>
                 </div>
             </div>
         </section>
