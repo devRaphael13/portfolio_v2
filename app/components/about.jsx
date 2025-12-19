@@ -20,7 +20,7 @@ export default function About() {
 
     return (
         <section className="grid grid-cols-2 px-36 py-40 gap-x-20 justify-center items-center">
-            <article className="flex flex-col gap-8">
+            <article className="flex flex-col gap-4">
                 <span className="text-purple-600 tracking-widest">ABOUT ME</span>
                 <h2 className="font-semibold text-5xl">Passionate About Creating Digital Excellence</h2>
                 <div className="flex flex-col gap-6">

@@ -1,22 +1,22 @@
-import Link from "next/link";
 import Hero from "./components/hero";
-import Image from "next/image";
-import Navbar from "./components/navbar";
 import About from "./components/about";
+import Services from "./components/services";
 import Skills from "./components/skills";
 import Contact from "./components/contact";
-import Footer from "./components/footer";
+import Projects from "./components/projects";
+import Experience from "./components/experience";
 
 
 export default function HomePage() {
     return (
         <main>
-            <Navbar />
             <Hero />
             <About />
+            <Experience />
+            <Services />
+            {/* <Projects /> */}
             <Skills />
             <Contact />
-            <Footer />
         </main>
     );
 }
