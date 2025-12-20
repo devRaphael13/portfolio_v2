@@ -1,33 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MdWorkOutline } from "react-icons/md";
 import { CiCircleChevDown } from "react-icons/ci";
+import { formatDate, loadIcon } from "../utils";
+import fetcher from "../fetcher";
+
 
 export default function Experience() {
-  const experiences = [
-    {
-      title: "Backend Developer",
-      company: "Sixth Alliance Limited",
-      period: "Apr 2024 - Nov 2025",
-      details:
-        "Built and maintained APIs, optimized database queries, and collaborated with frontend teams to deliver seamless integrations."
-    },
-    {
-      title: "Frontend Developer",
-      company: "Tech Solutions Inc.",
-      period: "Jan 2022 - Mar 2024",
-      details:
-        "Implemented responsive UIs, improved performance, and introduced design systems for consistency."
-    },
-    {
-      title: "Intern",
-      company: "Startup Hub",
-      period: "Jun 2021 - Dec 2021",
-      details:
-        "Assisted in developing MVP features, wrote tests, and contributed to documentation."
-    }
-  ];
+
+    const [loading, setLoading] = useState(true)
+    const [experiences, setExperiences] = useState(null)
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+
+    useEffect(() => {
+        fetcher(`${baseUrl}api/experiences/`, setExperiences, setLoading)
+    }, [baseUrl])
 
   return (
     <section className="px-36 py-40">
@@ -43,10 +31,10 @@ export default function Experience() {
         {/* Center dashed line */}
         <div className="absolute left-1/2 top-0 -translate-x-1/2 h-full border border-gray-300 border-dashed"></div>
 
-        {experiences.map((exp, index) => (
-          <div key={index} className="col-span-2 relative">
+        {experiences && experiences.map((exp, index) => (
+          <div key={exp["id"]} className="col-span-2 relative">
             <TimelineRow position={index % 2 === 0 ? "right" : "left"}>
-              <ExperienceCard exp={exp} />
+              <ExperienceCard {...exp} />
             </TimelineRow>
           </div>
         ))}
@@ -71,7 +59,7 @@ function TimelineRow({ position, children }) {
 /**
  * Card with accordion
  */
-function ExperienceCard({ exp }) {
+function ExperienceCard({ company, link, position, description, start_date, end_date, tech_used }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -83,10 +71,11 @@ function ExperienceCard({ exp }) {
         </div>
 
         <div className="flex-1">
-          <h3 className="text-xl font-semibold">{exp.title}</h3>
+          <h3 className="text-xl font-semibold">{position}</h3>
           <div className="flex gap-x-4 mt-1 text-gray-700">
-            <p className="border-r-2 pr-4 border-gray-300">{exp.company}</p>
-            <p>{exp.period}</p>
+            <p>{company}</p>
+            <div className="border-l-2 border-gray-200"></div>
+            <p>{formatDate(start_date, end_date)}</p>
           </div>
         </div>
 
@@ -103,12 +92,12 @@ function ExperienceCard({ exp }) {
 
       {/* Accordion content */}
       <div
-        className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
-          open ? "max-h-40 opacity-100 mt-4" : "max-h-0 opacity-0"
+        className={`overflow-auto transition-[max-height,opacity] duration-300 ease-out ${
+          open ? "max-h-40 opacity-100 mt-8 bg-gray-100 rounded-md p-2" : "max-h-0 opacity-0"
         }`}
       >
         <div className="text-gray-600">
-          <p>{exp.details}</p>
+          <p>{description}</p>
         </div>
       </div>
     </div>

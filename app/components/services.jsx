@@ -33,7 +33,6 @@ export default function Services() {
 function Service({ name, tag_line, features, icon_name, icon_library, icon_colour }) {
     const [IconComponent, setIconComponent] = useState(null);
 
-    console.log(icon_colour)
     useEffect(() => {
         let mounted = true;
         

@@ -18,6 +18,9 @@ const ICON_IMPORTERS = {
     ri: () => import('react-icons/ri'),
     md: () => import('react-icons/md'),
     ai: () => import('react-icons/ai'),
+    si: () => import('react-icons/si'),
+    lia: () => import ('react-icons/lia'),
+    io: () => import ('react-icons/io')
 };
 
 const iconCache = new Map();
