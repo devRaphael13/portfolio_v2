@@ -20,7 +20,7 @@ export default function Experience() {
   return (
     <section className="px-36 py-40">
       <div className="flex flex-col gap-y-4 items-center justify-center">
-        <span className="text-emerald-600 tracking-widest">Career Highlights</span>
+        <span className="text-purple-600 tracking-widest text-sm">CAREER HIGHLIGHTS</span>
         <h2 className="font-semibold text-5xl">Experience</h2>
         <p className="text-lg leading-relaxed text-gray-600">
           Proven track record of delivering impactful solutions across diverse industries.

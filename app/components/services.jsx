@@ -18,7 +18,7 @@ export default function Services() {
     return (
         <section className="flex flex-col gap-12 justify-center items-center px-36 py-40">
             <div className="flex flex-col gap-y-4 items-center justify-center">
-                <span className="text-emerald-600 tracking-widest">What I offer</span>
+                <span className="text-purple-600 tracking-widest text-sm">WHAT I OFFER</span>
                 <h2 className="font-semibold text-5xl">Services</h2>
                 <p className="text-lg leading-relaxed text-gray-600">Comprehensive development solutions tailored to bring your ideas to life with cutting-edge technology and expert craftsmanship.</p> 
             </div>
