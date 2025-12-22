@@ -2,9 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { FaCheck } from "react-icons/fa6";
-import { loadIcon } from "../utils";
-
-import fetcher from "../fetcher";
+import { loadIcon, fetcher } from "../utils";
 
 export default function Services() {
     const [services, setServices] = useState(null)
@@ -12,7 +10,7 @@ export default function Services() {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
     useEffect(() => {
-        fetcher(`${baseUrl}api/services/`, setServices, setLoading)
+        fetcher(`${baseUrl}api/services/`, {setData: setServices, setLoading})
     }, [baseUrl])
 
     return (

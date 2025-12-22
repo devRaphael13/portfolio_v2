@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 import { MdWorkOutline } from "react-icons/md";
 import { CiCircleChevDown } from "react-icons/ci";
-import { formatDate, loadIcon } from "../utils";
-import fetcher from "../fetcher";
+import { formatDate, fetcher } from "../utils";
 
 
 export default function Experience() {
@@ -14,7 +13,7 @@ export default function Experience() {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
     useEffect(() => {
-        fetcher(`${baseUrl}api/experiences/`, setExperiences, setLoading)
+        fetcher(`${baseUrl}api/experiences/`, {setData: setExperiences, setLoading})
     }, [baseUrl])
 
   return (

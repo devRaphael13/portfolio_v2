@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import fetcher from "../fetcher";
+import { fetcher } from "../utils";
 
 export default function Navbar() {
     const [resume, setResume] = useState(null)
@@ -9,7 +9,7 @@ export default function Navbar() {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
     useEffect(() => {
-        fetcher(`${baseUrl}api/profile/resume/`, setResume, setLoading);
+        fetcher(`${baseUrl}api/profile/resume/`, {setData: setResume, setLoading});
 
     }, [baseUrl]);
 

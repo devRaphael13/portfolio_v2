@@ -1,3 +1,32 @@
+export async function fetcher(
+    url,
+    { method = "GET", body = null, setData, setLoading } = {}
+) {
+
+    try {
+        const response = await fetch(url, {
+            method,
+            mode: "cors",
+            headers: { "Content-Type": "application/json" },
+            body: body ? JSON.stringify(body) : null,
+        });
+
+        const data = await response.json();
+
+        // For GET requests, update state if provided
+        if (method === "GET") {
+            if (setData) setData(data);
+            if (setLoading) setLoading(false);
+        }
+
+        return data; // return data so caller can use it directly
+    } catch (error) {
+        console.error("Fetcher error:", error);
+        if (method === "GET" && setLoading) setLoading(false);
+        throw error;
+    }
+}
+
 export function formatDate(start, end) {
     start = new Date(start).toLocaleString("default", { month: "short", year: "numeric" });
     end = end ? new Date(end).toLocaleString("default", { month: "short", year: "numeric" }) : "PRESENT";
@@ -49,10 +78,4 @@ export async function loadIcon(library, name) {
     iconCache.set(cacheKey, icon);
     return icon;
 }
-
-
-// export async function loadIcon(library, name) {
-//     const mod = await import(`react-icons/${library}`);
-//     return mod[name];
-// }
 

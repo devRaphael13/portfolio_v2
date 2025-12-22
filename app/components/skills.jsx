@@ -1,9 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react";
-import { loadIcon } from "../utils";
-
-import fetcher from "../fetcher";
+import { loadIcon, fetcher } from "../utils";
 
 export default function Skills() {
     const [skills, setSkills] = useState(null)
@@ -11,7 +9,7 @@ export default function Skills() {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
     useEffect(() => {
-        fetcher(`${baseUrl}api/technologies/`, setSkills, setLoading)
+        fetcher(`${baseUrl}api/technologies/`, {setData: setSkills, setLoading})
     }, [baseUrl])
 
     return (

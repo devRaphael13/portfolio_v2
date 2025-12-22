@@ -6,8 +6,7 @@ import { IoCodeSlashOutline } from "react-icons/io5";
 import { SlFolder } from "react-icons/sl";
 import { GoPeople } from "react-icons/go";
 import { IoIosStarOutline } from "react-icons/io";
-
-import fetcher from "../fetcher";
+import { fetcher } from "../utils";
 
 export default function About() {
     const [loading, setLoading] = useState(true)
@@ -15,7 +14,7 @@ export default function About() {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
     useEffect(() => {
-        fetcher(`${baseUrl}api/profile/`, setAbout, setLoading)
+        fetcher(`${baseUrl}api/profile/`, {setData: setAbout, setLoading})
     }, [baseUrl])
 
     return (

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { MdWorkOutline } from "react-icons/md";
-import fetcher from "../fetcher";
+import { fetcher } from "../utils";
 
 export default function Contact() {
     const [formData, setFormData] = useState({})
@@ -15,8 +15,8 @@ export default function Contact() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        // Call the api here 
+        fetcher(`${baseUrl}api/messages/`, {method: "POST", body: formData})
+        setFormData({})
     }
 
     return (
@@ -72,12 +72,13 @@ export default function Contact() {
                     <div className="flex flex-col gap-y-2">
                         <label htmlFor="full_name">Full Name</label>
                         <input
-                            name="fullName"
+                            name="full_name"
                             id="full_name"
                             className="p-4 border-2 rounded-md border-gray-200 focus:border-purple-600 focus:outline-none"
                             value={formData.fullName}
                             onChange={handleChange}
                             placeholder="Full Name"
+                            required
                         />
                     </div>
 
@@ -87,10 +88,11 @@ export default function Contact() {
                             name="email"
                             id="email"
                             className="p-4 border-2 rounded-md border-gray-200 focus:border-purple-600 focus:outline-none"
-
+                            type="email"
                             value={formData.email}
                             onChange={handleChange}
                             placeholder="Email"
+                            required
                         />
                     </div>
 
@@ -104,6 +106,7 @@ export default function Contact() {
                             value={formData.subject}
                             onChange={handleChange}
                             placeholder="Subject"
+                            required
                         />
                     </div>
 
@@ -117,6 +120,7 @@ export default function Contact() {
                             onChange={handleChange}
                             placeholder="Your Message"
                             rows={5}
+                            required
                         />
                     </div>
 
