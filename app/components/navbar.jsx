@@ -19,6 +19,7 @@ export default function Navbar() {
             <div className="flex gap-8">
                 <Link className="text-sm font-medium" href="/">Home</Link>
                 <Link className="text-sm font-medium" href="/about">About</Link>
+                <Link className="text-sm font-medium" href="/experience">Experiences</Link>
                 <Link className="text-sm font-medium" href="/about">Services</Link>
                 <Link className="text-sm font-medium" href="/skills">Skills</Link>
                 <Link className="text-sm font-medium" href="/contact">Contact</Link>

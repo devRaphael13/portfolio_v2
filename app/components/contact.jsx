@@ -5,9 +5,20 @@ import { MdWorkOutline } from "react-icons/md";
 import { fetcher } from "../utils";
 
 export default function Contact() {
-    const [formData, setFormData] = useState({})
+    const initialForm = {
+        fullName: "",
+        email: "",
+        subject: "",
+        message: ""
+      };
+    const [formData, setFormData] = useState(initialForm)
+    const [contact, setContact] = useState(null)
     const [loading, setLoading] = useState(null)
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+    
+    // useEffect(() => {
+    //     fetcher(`${baseUrl}api/profile/`, {setData: setServices, setLoading})
+    // }, [baseUrl])
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -16,7 +27,7 @@ export default function Contact() {
     const handleSubmit = (e) => {
         e.preventDefault()
         fetcher(`${baseUrl}api/messages/`, {method: "POST", body: formData})
-        setFormData({})
+        setFormData(initialForm)
     }
 
     return (
