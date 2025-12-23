@@ -31,7 +31,7 @@ export default function Contact() {
     }
 
     return (
-        <section className="px-36 py-40">
+        <section id="contact" className="px-36 py-40">
             <div className="flex flex-col gap-y-4 items-center justify-center mb-16">
                 <span className="text-purple-600 tracking-widest text-sm">GET IN TOUCH</span>
                 <h2 className="font-semibold text-5xl">Let's Work Together</h2>

@@ -20,7 +20,7 @@ export default function Hero() {
 
     return (
         <section
-            id="hero"
+            id="home"
             aria-labelledby="hero-heading"
             className="relative px-36 grid grid-cols-2 pb-10 pt-20 overflow-hidden"
         >

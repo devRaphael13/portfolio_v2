@@ -16,22 +16,22 @@ export default function Footer() {
                     <h3 className="text-lg font-medium mb-4">Quick Links</h3>
                     <ul className="text-sm flex flex-col gap-2">
                         <li>
-                            <Link href="">Home</Link>
+                            <Link href="#home">Home</Link>
                         </li>
                         <li>
-                            <Link href="">About</Link>
+                            <Link href="#about">About</Link>
                         </li>
                         <li>
-                            <Link href="">Experience</Link>
+                            <Link href="#experience">Experience</Link>
                         </li>
                         <li>
-                            <Link href="">Service</Link>
+                            <Link href="#services">Services</Link>
                         </li>
                         <li>
-                            <Link href="">Skills</Link>
+                            <Link href="#skills">Skills</Link>
                         </li>
                         <li>
-                            <Link href="">Contact</Link>
+                            <Link href="#contact">Contact</Link>
                         </li>
                     </ul>
                 </div>

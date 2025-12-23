@@ -17,7 +17,7 @@ export default function Experience() {
     }, [baseUrl])
 
   return (
-    <section className="px-36 py-40">
+    <section id="experience" className="px-36 py-40">
       <div className="flex flex-col gap-y-4 items-center justify-center">
         <span className="text-purple-600 tracking-widest text-sm">CAREER HIGHLIGHTS</span>
         <h2 className="font-semibold text-5xl">Experience</h2>
