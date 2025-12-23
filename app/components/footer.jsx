@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
+import { MdOutlineEmail } from "react-icons/md";
+import { FaLinkedinIn } from "react-icons/fa";
 
 export default function Footer() {
     return (
@@ -61,7 +63,6 @@ export default function Footer() {
                 <div className="flex gap-2">
                     <div className="p-4 bg-white/10 rounded-md shrink-0">
                         <Link href="">
-                        
                             <FaGithub size={20} className="text-white" />
                         </Link>
                     </div>
@@ -69,20 +70,14 @@ export default function Footer() {
                     <div className="p-4 bg-white/10 rounded-md shrink-0">
                         <Link href="">
                         
-                            <FaGithub size={20} className="text-white" />
+                            <FaLinkedinIn size={20} className="text-white" />
                         </Link>
                     </div>
 
                     <div className="p-4 bg-white/10 rounded-md shrink-0">
                         <Link href="">
                         
-                            <FaGithub size={20} className="text-white" />
-                        </Link>
-                    </div>
-
-                    <div className="p-4 bg-white/10 rounded-md shrink-0">
-                        <Link href="">
-                            <FaGithub size={20} className="text-white" />
+                            <MdOutlineEmail size={20} className="text-white" />
                         </Link>
                     </div>
                 </div>
