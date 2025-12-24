@@ -1,17 +1,9 @@
-"use client"
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { fetcher } from "../utils";
 
-export default function Navbar() {
-    const [resume, setResume] = useState(null)
-    const [loading, setLoading] = useState(true)
+export default async function Navbar() {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-
-    useEffect(() => {
-        fetcher(`${baseUrl}api/profile/resume/`, {setData: setResume, setLoading});
-
-    }, [baseUrl]);
+    const resume = await fetcher(`${baseUrl}api/profile/resume/`)
 
     return (
         <nav className="shadow-sm fixed top-0 left-0 w-full bg-white z-50 flex justify-between items-center py-4 px-36">

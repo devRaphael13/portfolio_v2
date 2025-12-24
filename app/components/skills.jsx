@@ -1,16 +1,10 @@
-"use client"
+import { fetcher } from "../utils";
+import { ICON_LIBRARIES } from "../icon_map";
 
-import { useState, useEffect } from "react";
-import { loadIcon, fetcher } from "../utils";
-
-export default function Skills() {
-    const [skills, setSkills] = useState(null)
-    const [loading, setLoading] = useState(null)
+export default async function Skills() {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+    const skills = await fetcher(`${baseUrl}api/technologies/`)
 
-    useEffect(() => {
-        fetcher(`${baseUrl}api/technologies/`, {setData: setSkills, setLoading})
-    }, [baseUrl])
 
     return (
         <section id="skills" className="flex flex-col gap-12 justify-center items-center px-36 py-40">
@@ -27,21 +21,8 @@ export default function Skills() {
 }
 
 function Skill({ name, icon_name, icon_library, icon_colour }) {
-    const [IconComponent, setIconComponent] = useState(null);
 
-    useEffect(() => {
-        let mounted = true;
-        
-        loadIcon(icon_library, icon_name).then((LoadedIcon) => {
-            if (mounted) {
-                setIconComponent(() => LoadedIcon); // Store the component itself
-            }
-        });
-        
-        return () => {
-            mounted = false;
-        };
-    }, [icon_library, icon_name]);
+    const IconComponent = ICON_LIBRARIES[icon_library][icon_name]
 
     return (
         <article className="flex flex-col justify-center items-center rounded-lg px-16 py-8 font-medium shadow-lg transition-shadow duration-200 hover:shadow-2xl">

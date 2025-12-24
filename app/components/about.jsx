@@ -1,6 +1,3 @@
-"use client"
-
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import { IoCodeSlashOutline } from "react-icons/io5";
 import { SlFolder } from "react-icons/sl";
@@ -8,14 +5,9 @@ import { GoPeople } from "react-icons/go";
 import { IoIosStarOutline } from "react-icons/io";
 import { fetcher } from "../utils";
 
-export default function About() {
-    const [loading, setLoading] = useState(true)
-    const [about, setAbout] = useState(null)
+export default async function About() {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-
-    useEffect(() => {
-        fetcher(`${baseUrl}api/profile/`, {setData: setAbout, setLoading})
-    }, [baseUrl])
+    const about = await fetcher(`${baseUrl}api/profile/`)
 
     return (
         <section id="about" className="grid grid-cols-2 px-36 py-40 gap-x-20 justify-center items-center">

@@ -1,22 +1,12 @@
-"use client"
-
 import Link from "next/link";
 import Image from "next/image";
 import { GoArrowRight } from "react-icons/go";
 import { FaCircle } from "react-icons/fa";
-import { useEffect, useState } from "react";
 import { fetcher } from "../utils";
 
-export default function Hero() {
-    const [profileImg, setProfileImg] = useState(null);
-    const [loading, setLoading] = useState(true);
-
+export default async function Hero() {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-
-    useEffect(() => {
-        fetcher(`${baseUrl}api/profile/profile_img/`, {setData: setProfileImg, setLoading});
-
-    }, [baseUrl]);
+    const profileImg = await fetcher(`${baseUrl}api/profile/profile_img/`)
 
     return (
         <section

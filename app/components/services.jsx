@@ -1,17 +1,10 @@
-"use client"
-
-import { useState, useEffect } from "react";
 import { FaCheck } from "react-icons/fa6";
-import { loadIcon, fetcher } from "../utils";
+import { fetcher } from "../utils";
+import { ICON_LIBRARIES } from "../icon_map";
 
-export default function Services() {
-    const [services, setServices] = useState(null)
-    const [loading, setLoading] = useState(null)
+export default async function Services() {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-
-    useEffect(() => {
-        fetcher(`${baseUrl}api/services/`, {setData: setServices, setLoading})
-    }, [baseUrl])
+    const services = await fetcher(`${baseUrl}api/services/`)
 
     return (
         <section id="services" className="flex flex-col gap-12 justify-center items-center px-36 py-40">
@@ -29,21 +22,7 @@ export default function Services() {
 }
 
 function Service({ name, tag_line, features, icon_name, icon_library, icon_colour }) {
-    const [IconComponent, setIconComponent] = useState(null);
-
-    useEffect(() => {
-        let mounted = true;
-        
-        loadIcon(icon_library, icon_name).then((LoadedIcon) => {
-            if (mounted) {
-                setIconComponent(() => LoadedIcon); // Store the component itself
-            }
-        });
-        
-        return () => {
-            mounted = false;
-        };
-    }, [icon_library, icon_name]);
+    const IconComponent = ICON_LIBRARIES[icon_library][icon_name]
 
     return (
         <article className="rounded-lg p-8 shadow-lg transition-shadow duration-200 hover:shadow-2xl">
