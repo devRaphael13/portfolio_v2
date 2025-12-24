@@ -1,4 +1,6 @@
 import "./globals.css";
+import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 
 export const metadata = {
     title: "Raphael Ezeigwe",
@@ -8,7 +10,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className="bg-slate-900 md:overflow-hidden flex justify-center lg:px-0 px-4 lg:py-28 py-12 text-slate-400">{children}</body>
+            <body className="text-gray-900">
+                <Navbar />
+                {children}
+                <Footer />
+            </body>
         </html>
     );
 }
