@@ -1,34 +1,15 @@
-"use client"
 
-import { useState, useEffect } from "react";
-import { MdWorkOutline } from "react-icons/md";
 import { fetcher } from "../utils";
+import ContactForm from "./contact_form";
+import { MdOutlineEmail } from "react-icons/md";
+import { FiPhone } from "react-icons/fi";
+import { SlLocationPin } from "react-icons/sl";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import Link from "next/link";
 
-export default function Contact() {
-    const initialForm = {
-        fullName: "",
-        email: "",
-        subject: "",
-        message: ""
-      };
-    const [formData, setFormData] = useState(initialForm)
-    const [contact, setContact] = useState(null)
-    const [loading, setLoading] = useState(null)
+export default async function Contact() {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-    
-    // useEffect(() => {
-    //     fetcher(`${baseUrl}api/profile/`, {setData: setServices, setLoading})
-    // }, [baseUrl])
-
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value })
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        fetcher(`${baseUrl}api/messages/`, {method: "POST", body: formData})
-        setFormData(initialForm)
-    }
+    const contactInfo = await fetcher(`${baseUrl}api/profile/`)
 
     return (
         <section id="contact" className="px-36 py-40">
@@ -42,102 +23,60 @@ export default function Contact() {
                     <h2 className="text-2xl font-bold">Contact Information</h2>
                     <div className="flex gap-x-4">
                         <div className="p-4 bg-purple-100 rounded-md shrink-0">
-                            <MdWorkOutline size={30} className="text-purple-600" />
+                            <MdOutlineEmail size={20} className="text-purple-600" />
                         </div>
 
                         <div>
-                            <span>Email</span>
-                            <p>raphaelme1308@gmail.com</p>
+                            <span className="text-gray-600 mb-2">Email</span>
+                            <p className="font-medium text-lg text-gray-700">{contactInfo && contactInfo["email"]}</p>
                         </div>
 
                     </div>
 
                     <div className="flex gap-x-4">
-                        <div className="p-4 bg-purple-100 rounded-md shrink-0">
-                            <MdWorkOutline size={30} className="text-purple-600" />
+                        <div className="p-4 bg-emerald-100 rounded-md shrink-0">
+                            <FiPhone size={20} className="text-emerald-600" />
                         </div>
 
                         <div>
-                            <span>Email</span>
-                            <p>raphaelme1308@gmail.com</p>
+                            <span className="text-gray-600 mb-2">Phone</span>
+                            <p className="font-medium text-lg text-gray-700">{contactInfo && contactInfo["phone_number"]}</p>
                         </div>
 
                     </div>
 
                     <div className="flex gap-x-4">
-                        <div className="p-4 bg-purple-100 rounded-md shrink-0">
-                            <MdWorkOutline size={30} className="text-purple-600" />
+                        <div className="p-4 bg-pink-100 rounded-md shrink-0">
+                            <SlLocationPin size={20} className="text-pink-600" />
                         </div>
 
                         <div>
-                            <span>Email</span>
-                            <p>raphaelme1308@gmail.com</p>
+                            <span className="text-gray-600 mb-2">Location</span>
+                            <p className="font-medium text-lg text-gray-700">{contactInfo && `${contactInfo["city"]}, ${contactInfo["state"]}, ${contactInfo["country"]}`}</p>
                         </div>
 
+                    </div>
+
+                    <div>
+                        <h2 className="text-2xl mb-6 font-bold">Follow Me</h2>
+                        <div className="flex gap-2">
+                            <div className="p-4 bg-gray-100 rounded-md shrink-0">
+                                <Link href={contactInfo && contactInfo["github_url"]} target="_blank" rel="noopener noreferrer">
+                                    <FaGithub size={20} className="text-gray-600" />
+                                </Link>
+                            </div>
+
+                            <div className="p-4 bg-gray-100 rounded-md shrink-0">
+                                <Link href={contactInfo && contactInfo["linkedin_url"]} target="_blank" rel="noopener noreferrer">
+                                    <FaLinkedinIn size={20} className="text-gray-600" />
+                                </Link>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
 
-
-                <form className="flex flex-col gap-4 shadow-lg p-6 rounded-md" onSubmit={handleSubmit}>
-                    <div className="flex flex-col gap-y-2">
-                        <label htmlFor="full_name">Full Name</label>
-                        <input
-                            name="full_name"
-                            id="full_name"
-                            className="p-4 border-2 rounded-md border-gray-200 focus:border-purple-600 focus:outline-none"
-                            value={formData.fullName}
-                            onChange={handleChange}
-                            placeholder="Full Name"
-                            required
-                        />
-                    </div>
-
-                    <div className="flex flex-col gap-y-2">
-                        <label htmlFor="email">Email</label>
-                        <input
-                            name="email"
-                            id="email"
-                            className="p-4 border-2 rounded-md border-gray-200 focus:border-purple-600 focus:outline-none"
-                            type="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            placeholder="Email"
-                            required
-                        />
-                    </div>
-
-                    <div className="flex flex-col gap-y-2">
-                        <label htmlFor="subject">Subject</label>
-                        <input
-                            name="subject"
-                            id="subject"
-                            className="p-4 border-2 rounded-md border-gray-200 focus:border-purple-600 focus:outline-none"
-
-                            value={formData.subject}
-                            onChange={handleChange}
-                            placeholder="Subject"
-                            required
-                        />
-                    </div>
-
-                    <div className="flex flex-col gap-y-2">
-                        <label htmlFor="message">Message</label>
-                        <textarea
-                            name="message"
-                            id="message"
-                            className="p-4 border border-2 rounded-md border-gray-200 focus:border-purple-600 focus:outline-none"
-                            value={formData.message}
-                            onChange={handleChange}
-                            placeholder="Your Message"
-                            rows={5}
-                            required
-                        />
-                    </div>
-
-                    <button className="mt-4 py-4 px-8 font-semibold rounded-md bg-gray-900 text-lg text-gray-200 transform transition-transform duration-200 hover:scale-105" type="submit">Send Message</button>
-                </form>
-
+                <ContactForm />
             </div>
         </section>
     )

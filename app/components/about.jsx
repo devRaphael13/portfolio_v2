@@ -32,8 +32,8 @@ export default async function About() {
                 </div>
                 
                 <div className="flex gap-x-2">
-                    <Link className="py-4 px-8 font-semibold rounded-md bg-gray-900 text-lg text-gray-200 transform transition-transform duration-200 hover:scale-105" href="">Get in Touch</Link>
-                    <Link className="px-8 py-4 rounded-md font-medium text-lg border-2 border-gray-900 transform transition-transform duration-200 hover:scale-105 hover:bg-gray-900 hover:text-gray-200" href="">View Work</Link>
+                    <Link className="py-4 px-8 font-semibold rounded-md bg-gray-900 text-lg text-gray-200 transform transition-transform duration-200 hover:scale-105" href="#contact">Get in Touch</Link>
+                    <Link className="px-8 py-4 rounded-md font-medium text-lg border-2 border-gray-900 transform transition-transform duration-200 hover:scale-105 hover:bg-gray-900 hover:text-gray-200" href="#experience">View Work</Link>
                 </div>
             </article>
 

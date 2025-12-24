@@ -1,9 +1,12 @@
 import Link from "next/link";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
-import { FaLinkedinIn } from "react-icons/fa";
+import { fetcher } from "../utils";
 
-export default function Footer() {
+export default async function Footer() {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+    const contactInfo = await fetcher(`${baseUrl}api/profile/`)
+
     return (
         <footer className="bg-gradient-to-br from-teal-500 via-emerald-500 to-teal-700 px-36 py-20 text-white">
             <div className="flex gap-8 py-8 justify-between">
@@ -41,13 +44,13 @@ export default function Footer() {
                 <h3 className="text-lg font-medium mb-4">Contact</h3>
                     <ul className="text-sm flex flex-col gap-2">
                         <li>
-                            <span>contact@example.com</span>
+                            <span>{contactInfo && contactInfo["email"]}</span>
                         </li>
                         <li>
-                            <span>+1 (555) 123-4567</span>
+                            <span>{contactInfo && contactInfo["phone_number"]}</span>
                         </li>
                         <li>
-                            <span>San Francisco, CA</span>
+                            <span>{contactInfo && `${contactInfo["city"]}, ${contactInfo["state"]}, ${contactInfo["country"]}`}</span>
                         </li>
                     </ul>
                 </div>
@@ -62,21 +65,19 @@ export default function Footer() {
 
                 <div className="flex gap-2">
                     <div className="p-4 bg-white/10 rounded-md shrink-0">
-                        <Link href="">
+                        <Link href={contactInfo && contactInfo["github_url"]} target="_blank" rel="noopener noreferrer">
                             <FaGithub size={20} className="text-white" />
                         </Link>
                     </div>
 
                     <div className="p-4 bg-white/10 rounded-md shrink-0">
-                        <Link href="">
-                        
+                        <Link href={contactInfo && contactInfo["linkedin_url"]} target="_blank" rel="noopener noreferrer">
                             <FaLinkedinIn size={20} className="text-white" />
                         </Link>
                     </div>
 
                     <div className="p-4 bg-white/10 rounded-md shrink-0">
-                        <Link href="">
-                        
+                        <Link href={`mailto:${contactInfo && contactInfo["email"]}`} target="_blank" rel="noopener noreferrer">
                             <MdOutlineEmail size={20} className="text-white" />
                         </Link>
                     </div>

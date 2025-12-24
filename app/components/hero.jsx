@@ -42,13 +42,13 @@ export default async function Hero() {
                 </p>
 
                 <h1 id="hero-heading" className="inline-block font-bold text-7xl">
-                    Creative{" "}
+                    Creative
                     <span className="block bg-gradient-to-r from-purple-600 to-emerald-600 bg-clip-text text-transparent">
                         Software Engineer
-                    </span>{" "}
+                    </span>
                     <span className="block">
                         & <span className="italic">Problem</span>
-                    </span>{" "}
+                    </span>
                     Solver
                 </h1>
 
@@ -58,10 +58,10 @@ export default async function Hero() {
                 </p>
 
                 <div className="flex gap-x-8 items-center">
-                    <button className="py-4 px-8 font-semibold rounded-md bg-gray-900 text-lg text-gray-200 transform transition-transform duration-200 hover:scale-105">
+                    <Link href="#experience" className="py-4 px-8 font-semibold rounded-md bg-gray-900 text-lg text-gray-200 transform transition-transform duration-200 hover:scale-105">
                         View Projects
-                    </button>
-                    <Link href="" className="flex justify-center items-center gap-1 font-medium text-lg">
+                    </Link>
+                    <Link href="#contact" className="flex justify-center items-center gap-1 font-medium text-lg">
                         Contact Me
                         <GoArrowRight size={22} strokeWidth={0.75} />
                     </Link>
@@ -79,7 +79,7 @@ export default async function Hero() {
                     {/* Avatar circle */}
                     <div className="relative w-72 h-72 rounded-full overflow-hidden border-[6px] border-white shadow-2xl shadow-slate-900/40">
                         <Image
-                            src={profileImg ? profileImg["profile_img"] : ""}
+                            src={profileImg && profileImg["profile_img"]}
                             alt="Portrait"
                             fill
                             className="object-cover"
