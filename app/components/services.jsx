@@ -7,14 +7,14 @@ export default async function Services() {
     const services = await fetcher(`${baseUrl}api/services/`)
 
     return (
-        <section id="services" className="flex flex-col gap-12 justify-center items-center px-36 py-40">
-            <div className="flex flex-col gap-y-4 items-center justify-center">
+        <section id="services" className="flex flex-col gap-12 justify-center items-center xl:px-36 lg:px-20 md:px-10 px-4 md:py-40 py-20">
+            <div className="flex flex-col lg:gap-y-4 md:gap-y-2 items-center justify-center">
                 <span className="text-purple-600 tracking-widest text-sm">WHAT I OFFER</span>
-                <h2 className="font-semibold text-5xl">Services</h2>
-                <p className="text-lg leading-relaxed text-gray-600">Comprehensive development solutions tailored to bring your ideas to life with cutting-edge technology and expert craftsmanship.</p> 
+                <h2 className="font-semibold lg:text-5xl text-4xl">Services</h2>
+                <p className="md:text-lg text-normal md:leading-relaxed leading-tight mt-2 md:mt-0 text-center text-gray-600">Comprehensive development solutions tailored to bring your ideas to life with cutting-edge technology and expert craftsmanship.</p> 
             </div>
 
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 lg:gap-8 md:gap-4">
                 {services && services.map(service => <Service key={service["id"]} {...service} />)}
             </div>
         </section>

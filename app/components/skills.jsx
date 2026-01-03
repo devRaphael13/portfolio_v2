@@ -7,13 +7,13 @@ export default async function Skills() {
 
 
     return (
-        <section id="skills" className="flex flex-col gap-12 justify-center items-center px-36 py-40">
+        <section id="skills" className="flex flex-col gap-12 justify-center items-center xl:px-36 lg:px-20 md:px-10 md:py-40 py-20">
             <div className="flex flex-col gap-y-4 items-center justify-center">
                 <span className="text-purple-600 tracking-widest text-sm">TECHNICAL EXPERTISE</span>
-                <h2 className="font-semibold text-5xl">Skills & Technologies</h2>
+                <h2 className="font-semibold lg:text-5xl text-4xl">Skills & Technologies</h2>
             </div>
 
-            <div className="grid grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-4 grid-cols-3 md:gap-8 gap-2">
                 {skills && skills.map(skill => <Skill key={skill["id"]} {...skill} />)}
             </div>
         </section>

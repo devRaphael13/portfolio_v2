@@ -6,7 +6,7 @@ export default async function Navbar() {
     const resume = await fetcher(`${baseUrl}api/profile/resume/`)
 
     return (
-        <nav className="shadow-sm fixed top-0 left-0 w-full bg-white z-50 flex justify-between items-center py-4 px-36">
+        <nav className="shadow-sm fixed top-0 left-0 w-full bg-white z-50 flex justify-between items-center py-4 xl:px-36 lg:px-20 md:px-10 overflow-clip">
             <div>LOGO</div>
             <div className="flex gap-8">
                 <Link className="text-sm font-medium" href="#home">Home</Link>
