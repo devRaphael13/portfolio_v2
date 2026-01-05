@@ -10,17 +10,17 @@ export default async function About() {
     const about = await fetcher(`${baseUrl}api/profile/`)
 
     return (
-        <section id="about" className="grid grid-cols-2 px-36 py-40 gap-x-20 justify-center items-center">
-            <article className="flex flex-col gap-4">
+        <section id="about" className="grid md:grid-cols-2 grid-cols-1 xl:px-36 lg:px-20 md:px-10 px-4 md:py-40 py-20 lg:gap-20 md:gap-10 gap-6 justify-center items-center">
+            <article className="flex flex-col md:gap-4 gap-2">
                 <span className="text-purple-600 tracking-widest text-sm">ABOUT ME</span>
-                <h2 className="font-semibold text-5xl">Passionate About Creating Digital Excellence</h2>
+                <h2 className="font-semibold lg:text-5xl text-4xl">Passionate About Creating Digital Excellence</h2>
                 <div className="flex flex-col gap-6">
                     {about && about["about"] ? (
                         about["about"]
                         .replace(/\\n/g, "\n") // turn escaped newlines into real ones
                         .split("\n\n")         // now split on double newlines
                         .map((paragraph, index) => (
-                            <p key={index} className="leading-relaxed text-gray-600">
+                            <p key={index} className="leading-relaxed text-gray-600 md:leading-normal">
                                 {paragraph.trim()}
                             </p>
                             ))
@@ -32,12 +32,12 @@ export default async function About() {
                 </div>
                 
                 <div className="flex gap-x-2">
-                    <Link className="py-4 px-8 font-semibold rounded-md bg-gray-900 text-lg text-gray-200 transform transition-transform duration-200 hover:scale-105" href="#contact">Get in Touch</Link>
-                    <Link className="px-8 py-4 rounded-md font-medium text-lg border-2 border-gray-900 transform transition-transform duration-200 hover:scale-105 hover:bg-gray-900 hover:text-gray-200" href="#experience">View Work</Link>
+                    <Link className="py-4 px-8 md:py-3 md:px-6 font-semibold rounded-md bg-gray-900 text-lg text-gray-200 transform transition-transform duration-200 hover:scale-105" href="#contact">Get in Touch</Link>
+                    <Link className="px-8 py-4 md:py-3 md:px-6 rounded-md font-semibold text-lg border-2 border-gray-900 transform transition-transform duration-200 hover:scale-105 hover:bg-gray-900 hover:text-gray-200" href="#experience">View Work</Link>
                 </div>
             </article>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 lg:gap-4 gap-2">
                 <div className="rounded-lg p-8 shadow-lg transition-shadow duration-200 hover:shadow-2xl">
                     <div className="flex items-center mb-2">
                         <span className="p-4 bg-purple-100 rounded-md">
@@ -45,7 +45,7 @@ export default async function About() {
                         </span>
                     </div>
 
-                    <p className="text-gray-600 font-normal"><span className="text-gray-900 block text-4xl font-bold mb-2">6+</span>Years of Experience</p>
+                    <p className="text-gray-600 font-normal md:text-sm"><span className="text-gray-900 block text-4xl font-bold mb-2">6+</span>Years of Experience</p>
                 </div>
 
                 <div className="rounded-lg p-8 shadow-lg transition-shadow duration-200 hover:shadow-2xl">
@@ -55,7 +55,7 @@ export default async function About() {
                         </span>
                     </div>
 
-                    <p className="text-gray-600 font-normal"><span className="text-gray-900 block text-4xl font-bold mb-2">10+</span>Projects Completed</p>
+                    <p className="text-gray-600 font-normal md:text-sm"><span className="text-gray-900 block text-4xl font-bold mb-2">10+</span>Projects Completed</p>
                 </div>
 
                 <div className="rounded-lg p-8 shadow-lg transition-shadow duration-200 hover:shadow-2xl">
@@ -65,7 +65,7 @@ export default async function About() {
                         </span>
                     </div>
 
-                    <p className="text-gray-600 font-normal"><span className="text-gray-900 block text-4xl font-bold mb-2">5+</span>Happy Clients</p>
+                    <p className="text-gray-600 font-normal md:text-sm"><span className="text-gray-900 block text-4xl font-bold mb-2">5+</span>Happy Clients</p>
                 </div>
 
                 <div className="rounded-lg p-8 shadow-lg transition-shadow duration-200 hover:shadow-2xl">
@@ -75,7 +75,7 @@ export default async function About() {
                         </span>
                     </div>
 
-                    <p className="text-gray-600 font-normal"><span className="text-gray-900 block text-4xl font-bold mb-2">4.8</span>Average Project Rating</p>
+                    <p className="text-gray-600 font-normal md:text-sm"><span className="text-gray-900 block text-4xl font-bold mb-2">4.8</span>Average Project Rating</p>
                 </div>
             </div>
         </section>

@@ -12,13 +12,13 @@ export default async function Contact() {
     const contactInfo = await fetcher(`${baseUrl}api/profile/`)
 
     return (
-        <section id="contact" className="px-36 py-40">
+        <section id="contact" className="xl:px-36 lg:px-20 md:px-10 px-4 md:py-40 py-20">
             <div className="flex flex-col gap-y-4 items-center justify-center mb-16">
                 <span className="text-purple-600 tracking-widest text-sm">GET IN TOUCH</span>
-                <h2 className="font-semibold text-5xl">Let's Work Together</h2>
+                <h2 className="font-semibold lg:text-5xl text-4xl">Let's Work Together</h2>
             </div>
 
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 grid-cols-1 md:gap-8 gap-4">
                 <div className="flex flex-col gap-6">
                     <h2 className="text-2xl font-bold">Contact Information</h2>
                     <div className="flex gap-x-4">

@@ -12,7 +12,7 @@ export default async function Hero() {
         <section
             id="home"
             aria-labelledby="hero-heading"
-            className="relative px-36 grid grid-cols-2 pb-10 pt-20 overflow-hidden"
+            className="relative xl:px-36 lg:px-20 md:px-10 px-4 grid lg:grid-cols-2 md:grid-cols-1 md:gap-10 gap-6 pb-10 pt-20 overflow-hidden"
         >
             <div
                 className="absolute inset-0 -z-10 pointer-events-none"
@@ -36,12 +36,12 @@ export default async function Hero() {
             </div>
 
             <header>
-                <p className="inline-flex w-fit items-center justify-center px-4 py-2 gap-1 bg-emerald-50 my-4 rounded-full">
+                <p className="flex w-fit items-center justify-center px-4 py-2 gap-1 bg-emerald-50 my-4 rounded-full">
                     <FaCircle className="text-emerald-500 animate-pulse" size={10} />
-                    <span className="text-emerald-800 font-medium">Available for work</span>
+                    <span className="text-emerald-800 font-medium md:text-sm">Available for work</span>
                 </p>
 
-                <h1 id="hero-heading" className="inline-block font-bold text-7xl">
+                <h1 id="hero-heading" className="inline-block font-bold lg:text-7xl text-5xl">
                     Creative
                     <span className="block bg-gradient-to-r from-purple-600 to-emerald-600 bg-clip-text text-transparent">
                         Software Engineer
@@ -52,16 +52,16 @@ export default async function Hero() {
                     Solver
                 </h1>
 
-                <p className="inline-block my-8 text-lg font-medium text-gray-600 tracking-wide">
+                <p className="inline-block my-8 md:text-lg text-normal font-medium text-gray-600 md:tracking-wide tracking-tight md:font-normal">
                     Crafting elegant solutions to complex problems. Specialized in building exceptional
                     digital experiences that combine beautiful design with powerful functionality.
                 </p>
 
                 <div className="flex gap-x-8 items-center">
-                    <Link href="#experience" className="py-4 px-8 font-semibold rounded-md bg-gray-900 text-lg text-gray-200 transform transition-transform duration-200 hover:scale-105">
+                    <Link href="#experience" className="py-4 px-8 md:py-3 md:px-6 font-semibold rounded-md bg-gray-900 text-lg text-gray-200 transform transition-transform duration-200 hover:scale-105">
                         View Projects
                     </Link>
-                    <Link href="#contact" className="flex justify-center items-center gap-1 font-medium text-lg">
+                    <Link href="#contact" className="flex justify-center items-center gap-1 font-semibold text-lg">
                         Contact Me
                         <GoArrowRight size={22} strokeWidth={0.75} />
                     </Link>
@@ -88,7 +88,7 @@ export default async function Hero() {
                 </div>
 
                 {/* Code speech bubble */}
-                <div className="absolute top-48 right-10 rounded-2xl bg-white shadow-lg shadow-slate-900/20 px-4 py-2 text-sm font-mono">
+                <div className="absolute lg:top-48 lg:right-10 md:top-10 md:right-20 hidden md:block rounded-2xl bg-white shadow-lg shadow-slate-900/20 px-4 py-2 text-sm font-mono">
                     <span className="text-slate-600">const </span>
                     <span className="text-slate-800">code</span>
                     <span className="text-slate-600"> = </span>

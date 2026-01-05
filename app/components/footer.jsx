@@ -8,14 +8,14 @@ export default async function Footer() {
     const contactInfo = await fetcher(`${baseUrl}api/profile/`)
 
     return (
-        <footer className="bg-gradient-to-br from-teal-500 via-emerald-500 to-teal-700 px-36 py-20 text-white">
-            <div className="flex gap-8 py-8 justify-between">
-                <div className="w-1/4">
+        <footer className="bg-gradient-to-br from-teal-500 via-emerald-500 to-teal-700 xl:px-36 lg:px-20 md:px-10 px-4 md:py-20 py-10 text-white">
+            <div className="grid md:grid-cols-4 grid-cols-2 gap-8 py-8 justify-between">
+                <div>
                     <h2 className="font-semibold text-2xl mb-4">Portfolio</h2>
                     <p className="text-sm">Creating exceptional digital experiences through innovative design and clean code.</p>
                 </div>
 
-                <div className="w-1/4">
+                <div>
                     <h3 className="text-lg font-medium mb-4">Quick Links</h3>
                     <ul className="text-sm flex flex-col gap-2">
                         <li>
@@ -40,7 +40,7 @@ export default async function Footer() {
                 </div>
 
 
-                <div className="w-1/4">
+                <div>
                 <h3 className="text-lg font-medium mb-4">Contact</h3>
                     <ul className="text-sm flex flex-col gap-2">
                         <li>
@@ -55,12 +55,12 @@ export default async function Footer() {
                     </ul>
                 </div>
 
-                <div className="w-1/4">
+                <div>
                     <h3 className="text-lg font-medium mb-4">Philosopy</h3>
                     <p className="italic text-sm">Good design is obvious; great design is invisible.</p>
                 </div>
             </div>
-            <div className="pt-4 text-sm flex justify-between border-t border-emerald-200">
+            <div className="pt-4 text-sm flex flex-wrap gap-2 justify-between border-t border-emerald-200">
                 <p>&copy; 2025 Portfolio. All rights reserved</p>
 
                 <div className="flex gap-2">
