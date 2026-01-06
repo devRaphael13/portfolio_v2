@@ -1,31 +1,54 @@
 export async function fetcher(
     url,
     { method = "GET", body = null, setData, setLoading } = {}
-) {
-
+  ) {
     try {
-        const response = await fetch(url, {
-            method,
-            mode: "cors",
-            headers: { "Content-Type": "application/json" },
-            body: body ? JSON.stringify(body) : null,
-        });
-
-        const data = await response.json();
-
-        // For GET requests, update state if provided
-        if (method === "GET") {
-            if (setData) setData(data);
-            if (setLoading) setLoading(false);
-        }
-
-        return data; // return data so caller can use it directly
-    } catch (error) {
-        console.error("Fetcher error:", error);
+      const response = await fetch(url, {
+        method,
+        mode: "cors",
+        headers: { "Content-Type": "application/json" },
+        body: body ? JSON.stringify(body) : null,
+      });
+  
+      // Handle non-OK responses
+      if (!response.ok) {
+        console.error(`Fetch failed: ${response.status} ${response.statusText}`);
         if (method === "GET" && setLoading) setLoading(false);
-        throw error;
+        return null;
+      }
+  
+      // Handle empty responses (e.g. 204 No Content)
+      if (response.status === 204) {
+        if (method === "GET" && setLoading) setLoading(false);
+        return null;
+      }
+  
+      // Check content type before parsing
+      const contentType = response.headers.get("content-type") || "";
+      let data;
+  
+      if (contentType.includes("application/json")) {
+        data = await response.json();
+      } else {
+        // fallback: text or HTML
+        const text = await response.text();
+        console.warn("Non-JSON response received:", text.slice(0, 200));
+        data = null;
+      }
+  
+      // Update state for GET requests
+      if (method === "GET") {
+        if (setData) setData(data);
+        if (setLoading) setLoading(false);
+      }
+  
+      return data;
+    } catch (error) {
+      console.error("Fetcher error:", error);
+      if (method === "GET" && setLoading) setLoading(false);
+      return null;
     }
-}
+  }
 
 export function formatDate(start, end) {
     start = new Date(start).toLocaleString("default", { month: "short", year: "numeric" });
